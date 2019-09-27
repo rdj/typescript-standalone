@@ -1,0 +1,23 @@
+{
+  "name": "typescript-standalone",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "dependencies": {
+  },
+  "devDependencies": {
+    "copyfiles": "^2.1.1",
+    "typescript": "^3.6.3",
+    "gh-pages": "^2.1.1"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build:ts": "tsc -p .",
+    "build:static": "copyfiles -u 1 'src/**/*.html' 'src/**/*.css' dist",
+    "build": "npm run build:static && npm run build:ts",
+    "deploy": "npm run clean && npm run build && gh-pages -d dist"
+  },
+  "keywords": [],
+  "author": "Ryan D Johnson <ryandjohnson@gmail.com>",
+  "license": "private"
+}
